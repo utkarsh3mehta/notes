@@ -57,3 +57,41 @@ __S3 Costing factors__
 
 __Relational Database Services (RDS) Costing factors__
 * DB server uptime
+* Type of DB (tier)
+* Purchase type (On-demand, reserved)
+* Number of DBs running
+* Requests to DB
+* Number of AZs DB instance is deployed in
+
+__Note__
+If DB instance is terminated, it's corresponding backup starts incurring charges.
+
+### [Dynamo DB](https://aws.amazon.com/dynamodb/): 
+NoSQL DB service provided with AWS itself.
+
+__Note__
+* It is best to keep resources for one application in one location.
+* We can buy reserved instances of others, who have chosen to sell it.
+
+Check [AWS Architecture Center](https://aws.amazon.com/architecture/?awsf.quickstart-architecture-page-filter=highlight%23new) for looking at some architectural templates that AWS suggests.
+
+NACL | Security Groups
+--- | ---
+Applied at a subnet level | Applied to the instance
+Stateless: Change to outgoing rule has not effect on incoming rule | Stateful: Change to outgoing rule is replicated to incoming rule
+Allows and deny rules | Only allow rules (Everything else is denied)
+Process rules in the order of it's priority | All rules are checked before connection
+
+### Elastic Block Store
+
+All the disks, volumes of disks are EBS.
+
+_Hacks_
+To encrypt the root drive
+1. Take a snapshot of the desired root drive
+1. Copy and encrypt it
+1. Create an image keeping the encrypted drive as root drive
+
+__Note__
+* To change the AZ of a disk, create a snapshot of it in the desired AZ and redeploy.
+* To change the region, create an AMI and redeploy the VM.
