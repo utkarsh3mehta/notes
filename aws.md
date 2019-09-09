@@ -19,11 +19,12 @@ There was multiple types of storages that are available in AWS.
 
 #### Cross region replication
 AWS gives the feature to replicate data in one bucket in AZ 1 to another bucket in AZ 2.
+
 __Note__
 * If cross region is enabled on a non-empty bucket, already existing data needs to be moved to the replicated bucket.
 * When a delete occurs in the base bucket, it is not replicated to the replicated bucket. Deletes are not replicated.
 
-### Trasnfer Acceleration
+### Transfer Acceleration
 
 A tool used to check the speed between availability zones and regions. Along with possible bandwidth costs that might incur.
 
@@ -46,6 +47,7 @@ __AWS cost depends on__
 * Compute
 * Storage
 * Data out transfer
+
 [Cost Overview Page](https://d1.awsstatic.com/whitepapers/aws_pricing_overview.pdf)
 
 __S3 Costing factors__
