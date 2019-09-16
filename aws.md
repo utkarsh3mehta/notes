@@ -14,6 +14,7 @@ There was multiple types of storages that are available in AWS.
 * S3 Intelligent Tiering: Uses machine learning to manage the files in the bucket
 
 #### Life cycle rules
+//hi edited by ahmed
 - Decide when the a bucket should change it's storage type. Like a policy that automatically tells AWS to change the storage type after a certain period of time.
 - You can assign lifecycle rules to specific objects with specific tags as well.
 
