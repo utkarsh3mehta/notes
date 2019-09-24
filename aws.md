@@ -9,8 +9,8 @@ There was multiple types of storages that are available in AWS.
 * S3: Simple Storage Service
 * S3 IA: Storage service that is not accessed frequently.
 * S3 One-Zone IA: Infrequently accessed storage service that is hosted in only one availability zone.
-* [S3 Glacier](https://docs.aws.amazon.com/amazonglacier/latest/dev/introduction.html): Archival storage service
-* S3 Glacier Deep Archive: Truly archived data storage type. _as little as $1 per terabyte per month_
+* [S3 Glacier](https://docs.aws.amazon.com/amazonglacier/latest/dev/introduction.html): Archival storage service. Better for large sized objects.
+* S3 Glacier Deep Archive: Truly archived data storage type. _as little as $1 per terabyte per month_ Better for small sized objects.
 * S3 Intelligent Tiering: Uses machine learning to manage the files in the bucket
 
 #### Life cycle rules
