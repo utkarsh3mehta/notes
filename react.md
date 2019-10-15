@@ -31,3 +31,15 @@ render () {
   />
 })}
 ```
+**You might get a 'key' warning if you run the above code.**
+
+- When you run loops, the `map()` function also allows you the index of each array element. For e.g.:
+```javascript
+{this.persons.map(```**(person, index)**```javascript => {
+  return <Person 
+    click={() => this.someEventHandler(index)}
+    name={person.name}
+    age={person.age}
+  />
+})}
+```
