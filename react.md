@@ -35,7 +35,7 @@ render () {
 
 - When you run loops, the `map()` function also allows you the index of each array element. For e.g.:
 ```javascript
-{this.persons.map(```**(person, index)**```javascript => {
+{this.persons.map((person, index) => {
   return <Person 
     click={() => this.someEventHandler(index)}
     name={person.name}
@@ -43,3 +43,10 @@ render () {
   />
 })}
 ```
+
+- Always save the original array to another variable. Let's say that personList is an array. 
+- `persons = personList` is only a passing of reference values.
+- It is a better idea to `persons = personList.slice()` or `persons = [...personList]`
+
+**This still does not solve the key issue**
+
