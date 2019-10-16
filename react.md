@@ -240,4 +240,27 @@ const buttonStyle = {
     //new styles
   }
 ```
-- **Don't forget to return the final `App` encapsulated inside the `Radium()` block too.**
+- **Don't forget to encapsulate the final export `App` inside the `Radium()` block too.**
+
+- To use @media queries,
+```javascript
+  const style = {
+    '@media (min-width:500px)': {
+      width: '450px',
+    }
+  };
+```
+
+- **Use a hook provided my Radium to successfully execute media queries**
+```javascript
+import Radium, { StyleRoot } from 'radium';
+...
+
+render() {
+  return (
+    <StyleRoot>
+    <div>...</div>
+    </StyleRoot>
+  );
+}
+```
