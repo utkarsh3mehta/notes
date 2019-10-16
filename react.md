@@ -215,3 +215,29 @@ buttonStyle.backgroundColor: 'red';
 ```javascript
 <div className={classes.join(' ')}></div>
 ```
+
+#### To use psuedo codes in styling
+
+- Install radium
+`npm install --save radium`
+- Radium allows us to use psuedo code in styling just like JSON objects. For e.g.:
+```javascript
+const buttonStyle = {
+    color: 'white',
+    padding: '10px',
+    margin: '0 0 10px 0',
+    backgroundColor: 'green',
+    border: '1px solid blue',
+    ':hover': {
+      backgroundColor: 'lightgreen',
+      color: 'black',
+    }
+  }
+```
+- To refer to the psuedo codes, like `:hover `, `:after` and others:
+```javascript
+  buttonStyle[':hover'] = {
+    //new styles
+  }
+```
+- **Don't forget to return the final `App` encapsulated inside the `Radium()` block too.**
