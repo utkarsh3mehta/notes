@@ -314,3 +314,8 @@ import styles from './App.css';
 ```
 
 **With this in place, we do not need 'Radium' class**
+
+*To make a css style global, you can even mark it as `:global`*
+```css
+:global .ClassName {}
+```
