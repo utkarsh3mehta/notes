@@ -264,3 +264,53 @@ render() {
   );
 }
 ```
+
+### CSS Moduling
+
+- To make sure that a `.css` file is assigned to only one `.js` file, we should `eject` the scripts.
+- `Eject` explodes the scripts and webpacks. This allows us to make configuration changes.
+- Using this, we shall make the necessary changes to assign respective `.css` files to their `.js` files.
+
+###### webpack.config.dev.js | Under 'module' object, inside test: /\.css$/ object
+```javascript
+use: [
+  {
+    loader: require.resolve('css-loader'),
+    options: {
+      importLoaders: 1,
+      module: true, // add this line
+      localIdentName: '[name]__[local]__[hash:base64:5]', // add this line
+    },
+  },
+```
+
+###### webpack.config.prod.js | Under 'module' object, inside test: /\.css$/ object
+```javascript
+use: [
+  {
+    loader: require.resolve('css-loader'),
+    options: {
+      importLoaders: 1,
+      module: true, // add this line
+      localIdentName: '[name]__[local]__[hash:base64:5]', // add this line
+      minimize: true,
+      sourceMap: shouldUseSourceMap,
+    },
+  },
+```
+
+By doing this, we make sure that a `.css` file is used by only the respective `.js` file.
+
+- Keep in mind, to use the styles now, we need to import a variable from the `.css` files now.
+- Or else, the styles, imported from external files, will not apply
+
+###### App.js
+```javascript
+import styles from './App.css';
+...
+...
+// To call any style or class mentioned in the .css file, refer it via the 'styles' object
+<div className={styles.Bold}> </div>
+```
+
+**With this in place, we do not need 'Radium' class**
