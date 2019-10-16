@@ -319,3 +319,5 @@ import styles from './App.css';
 ```css
 :global .ClassName {}
 ```
+
+*No need to worry about @media queries. Write them inside the `.css` file and everything works fine.*
