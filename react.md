@@ -163,8 +163,6 @@ state = {
       </div>
     );
 
-
-
     return (
       <div className='App'>
         <p>Hi There</p>
@@ -178,4 +176,42 @@ state = {
     );
   }
 }
+```
+
+### Dynamic styling
+
+#### To enter styles, there are two ways:
+
+1. Write the styling in a `.css` file and import it.
+1. Create a `const` variable and add JSON based styling, like below:
+
+```javascript
+  const buttonStyle = {
+    color: 'white',
+    padding: '10px',
+    margin: '0 0 10px 0',
+    backgroundColor: 'green',
+    border: '1px solid blue',
+  }
+```
+**Keep in mind, this is javascript and not css. We need to make sure that we write javascript code.**
+
+- To make changes to a style, write a function that does something and in it update the style. Since it a JSON object, changing it is just like any other object.
+
+```javascript
+buttonStyle.backgroundColor: 'red';
+```
+
+#### To update classes:
+
+1. Initialize an array
+```javascript
+  const classes = []
+```
+
+1. Push into the array all the classes you wish using the `push()` method.
+1. Use the array in the `className` attributes like this,
+
+```javascript
+<div className={classes.join(' ')}></div>
 ```
