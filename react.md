@@ -321,3 +321,13 @@ import styles from './App.css';
 ```
 
 *No need to worry about @media queries. Write them inside the `.css` file and everything works fine.*
+
+### Debuging
+
+- For functional errors, refer official documents
+- For logical errors, prefer using the Chrome browser.
+  - The dev tools in it.
+  - The source map in the dev tools
+    - The source map allows you to add break point on the running code on the browser.
+
+**Install the 'React Developer Tool' Chrome extension**
