@@ -377,3 +377,30 @@ componentDidCatch(error, errorInfo) {
 <breakableAppComponent />
 </ErrorBoundary>
 ```
+
+###### ErrorBoundary/ErrorBoundary.js
+```javascript
+import React, { Component } from 'react';
+
+class ErrorBoundary extends Component {
+  state = {
+    hasError: false,
+    errorMessage: '',
+  }
+
+  componentDidCatch(error, errorInfo) {
+    this.state({
+      hasError: true,
+      errorMessage: error,
+    });
+  }
+
+  render () {
+    if (this.state.hasError) {
+      return <p>{this.state.errorMessage}</p>
+    } else {
+      return <p>{this.props.children}</p>
+    }
+  }
+}
+```
