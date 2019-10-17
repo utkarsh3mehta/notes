@@ -342,6 +342,7 @@ import styles from './App.css';
 1. To use this functionality, we need to create a class for ErrorBoundary, in a new a `.js` file.
 1. ErrorBoundary is well defined class in React-16 and has a fixed format.
 1. Refer [here](https://reactjs.org/docs/error-boundaries.html) for the official documentation.
+1. [*Check here for a live demo*](https://codepen.io/gaearon/pen/wqvxGa?editors=0010)
 
 ##### Details about the class
 1. ErrorBoundary is a class that helps react maintain the component tree even if one component breaks.
