@@ -424,4 +424,4 @@ export default ErrorBoundary;
 Something like this:
 
 
-[Image of the file structure](react-file-structure.PNG)
+![Image of the file structure](react-file-structure.PNG)
