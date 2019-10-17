@@ -345,6 +345,7 @@ import styles from './App.css';
 ##### Details about the class
 1. ErrorBoundary is a class that helps react maintain the component tree even if one component breaks.
 1. The class extends the Component class
+1. If there is no error in the component, the elements inside the component are passed on to the ErrorBoundary class as the `props.children`. You can use it to show the elements, if there is no error.
 1. The class is created when there is atleast one of the following methods:
 `static getDerivedStateFromError()` or `componentDidCatch()`
 1. These methods are responsible for maintaining the state of the class:
