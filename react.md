@@ -422,4 +422,6 @@ export default ErrorBoundary;
 - Keep your final `App.js` or `Root.js` file and its dependencies in the Container folder
 
 Something like this:
-![Image of the file structure](react-file-structure.PNG)
+
+
+[Image of the file structure](react-file-structure.PNG)
