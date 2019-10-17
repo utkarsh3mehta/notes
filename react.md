@@ -51,6 +51,7 @@ render () {
 **This still does not solve the key issue**
 
 **This does**
+**Keep in mind that the key should always be the attribute of the highest parent class**
 - To solve the key issue, simple create an ID to each element in the array or object and pass it as key attributes.
 
 ```javascript
