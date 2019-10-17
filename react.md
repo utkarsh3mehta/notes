@@ -322,7 +322,7 @@ import styles from './App.css';
 
 *No need to worry about @media queries. Write them inside the `.css` file and everything works fine.*
 
-### Debuging
+### Debugging
 
 - For functional errors, refer official documents
 - For logical errors, prefer using the Chrome browser.
@@ -331,3 +331,48 @@ import styles from './App.css';
     - The source map allows you to add break point on the running code on the browser.
 
 **Install the 'React Developer Tool' Chrome extension**
+
+#### Error Boundary
+
+- ErrorBoundary is a functionality that is provided along with React v16+.
+- ErrorBoundary allows us to use custom error messages for any component on the page.
+- In the development environment, the error will be shown just like that. But in the production environment, the error will be shown only at the component that has the error. All other components, that do not have any error will load perfectly.
+
+1. To use this functionality, we need to create a class for ErrorBoundary, in a new a `.js` file.
+1. ErrorBoundary is well defined class in React-16 and has a fixed format.
+1. Refer [here](https://reactjs.org/docs/error-boundaries.html) for the official documentation.
+
+##### Details about the class
+1. ErrorBoundary is a class that helps react maintain the component tree even if one component breaks.
+1. The class extends the Component class
+1. The class is created when there is atleast one of the following methods:
+`static getDerivedStateFromError()` or `componentDidCatch()`
+1. These methods are responsible for maintaining the state of the class:
+```javascript
+state = {
+  hasError: true,
+  errorMessage: '',
+}
+```
+1. `static getDerivedStateFromError(error)`:
+```javascript
+static getDerivedStateFromError(error) {
+  // this method is responsible for setting the state to error ready
+  return {hasError: true};
+}
+```
+1. `componentDidCatch(error, errorInfo)`:
+```javascript
+componentDidCatch(error, errorInfo) {
+  // this method is responsible for doing the things you'd want to do when an error occurs
+  // you may return a fallback UI back to the component tree
+  // you may log the error to any log file
+  // you may change the state of the class to save the errorInfo as the errorMessage
+}
+```
+1. Once all the above step have been completed, you may use the class as a component and wrap and breakable components inside it
+```html
+<ErrorBoundary>
+<breakableAppComponent />
+</ErrorBoundary>
+```
