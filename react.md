@@ -408,3 +408,18 @@ class ErrorBoundary extends Component {
 
 export default ErrorBoundary;
 ```
+
+### Deep Dive
+#### Proper file structuring
+
+- It is better to place the files in a proper folder structure
+- Only keep the files related to `index` in the `src` folder.
+- Everything else must be in some folder inside the `src` folder.
+
+- Keep your components in the Components folder
+- For each component, create a new folder inside the Component folder
+- Keep your images, videos and other files in the Assets folder
+- Keep your final `App.js` or `Root.js` file and its dependencies in the Container folder
+
+Something like this:
+![Image of the file structure](react-file-structure.PNG)
