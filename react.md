@@ -438,7 +438,7 @@ class based components extend the components class | they are initialized as a n
 can have the variable state and work on it | need to hook `{useState}` component for React-v16 to use state functionality
 `this.state, this.props` | `props.attributeName`
 
-#### Component Lifecycle
+### Component Lifecycle for component creation
 *Lifecycle hooks not to be confused with React hooks*
 
 - **Stage 1**
