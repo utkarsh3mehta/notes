@@ -423,5 +423,10 @@ export default ErrorBoundary;
 
 Something like this:
 
-
 ![Image of the file structure](react-file-structure.PNG)
+
+Why is folder structuring important?
+- It is important to keep the `App.js` file concise and short.
+- Breaking components into smaller components makes it easy to re-use the components else where.
+- Structuring the folder helps in finding a component.
+
