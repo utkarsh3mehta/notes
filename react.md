@@ -432,7 +432,7 @@ Why is folder structuring important?
 
 **Difference between class based and functional components**
 Class Based | Functional
---|--
+----------- | ----------
 class based components extend the components class | they are initialized as a normal function or an arrow function
 can have the variable `state` and work on it | need to hook `{useState}` component for React-v16 to use state functionality
 `this.state, this.props` | `props.attributeName`
