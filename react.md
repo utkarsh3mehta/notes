@@ -437,3 +437,54 @@ Class Based | Functional
 class based components extend the components class | they are initialized as a normal function or an arrow function
 can have the variable state and work on it | need to hook `{useState}` component for React-v16 to use state functionality
 `this.state, this.props` | `props.attributeName`
+
+#### Component Lifecycle
+*Lifecycle hooks not to be confused with React hooks*
+
+- **Stage 1**
+  - When a new component is created, the constructor of the component is created. The props of the components are also passed.
+  ```javascript
+  constructor(props) {
+    super(props); // <-- This is important to supercede the default constructor of the component
+  }
+  ```
+    - Do's
+      - Set up state variable
+    - Don'ts
+      - Cause side-effects
+      - Meaning not to make Http calls or API calls
+
+- **Stage 2**
+  - When the new component is created, it's parts are completed by placing the values received from props.
+  - A desired output of the component is created.
+  ```javascript
+  static getDerivedStateFromProp(props, state)
+  ```
+    - Do's
+      - Sync the state
+    -Don'ts
+      - Cause side-effects
+      - Meaning make any out of application calls
+
+- **Stage 3**
+  - Once completely created, the JSX code is executed and the component is then rendered.
+  ```javascript
+  render()
+  ```
+    - Do's
+      - Prepare the structure of the component in JSX code
+
+- **Stage 4**
+  - Render child component
+  - In this stage, the components inside the parent component go through the same lifecycle
+
+- **Stage 5**
+  - Once rendered, the component is then mounted onto the entire component tree of the web app.
+  ```javascript
+  componentDidMount()
+  ```
+    - Do's
+      - Cause side-effect
+      - Make calls outside the application
+    - Don'ts
+      - Change the state of the component. Or else, this will lead to re-rendering the component
