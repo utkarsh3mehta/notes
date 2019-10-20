@@ -4,7 +4,7 @@
 - To add conditional components in JSX, prefer using ternary operators.
 - To add complex conditional components in JSX, use if-else conditions outside of the return function. *Shown below*
 
-```javascript
+```jsx
 render () {
   let person = null;
   if(someBoolean) {
@@ -23,7 +23,7 @@ render () {
  
 - To execute loops in the react, use Vanilla JS `.map()` function. *Shown below*
 
-```javascript
+```jsx
 {this.persons.map(person => {
   return <Person 
     name={person.name}
@@ -34,7 +34,7 @@ render () {
 **You might get a 'key' warning if you run the above code.**
 
 - When you run loops, the `map()` function also allows you the index of each array element. For e.g.:
-```javascript
+```jsx
 {this.persons.map((person, index) => {
   return <Person 
     click={() => this.someEventHandler(index)}
@@ -54,19 +54,19 @@ render () {
 **Keep in mind that the key should always be the attribute of the highest parent class**
 - To solve the key issue, simple create an ID to each element in the array or object and pass it as key attributes.
 
-```javascript
+```jsx
 <Person key={person.id} />
 ```
 
 - To remove elements from an array, use simple vanillaJS `.splice()` function.
 
-```javascript
+```jsx
 array.splice(indexNumber, 1); // delete only 1 element starting from this index number
 ```
 
 - To edit only a single element from an array, the code is a bit complex. Hence, refer the comments written:
 
-```javascript
+```jsx
 changeHandler = (event, id) => { // take inputs the event that changed the elements and id of the element
   const elementIndex = this.state.array.findIndex(a => p.id === id); // search for the element where the 'id' matches
 
@@ -85,7 +85,7 @@ changeHandler = (event, id) => { // take inputs the event that changed the eleme
 - Clicking on any character will remove the character from the input box and from the character list.
 
 ###### UserInput.js
-```javascript
+```jsx
 const userInput = (props) => {
 
     let output = null;
@@ -112,7 +112,7 @@ export default userInput;
 ```
 
 ###### UserOutput.js
-```javascript
+```jsx
 const charStyle = {
     display: 'inline-block',
     border: '1px solid black',
@@ -134,7 +134,7 @@ export default userOutput;
 ```
 
 ###### app.js
-```javascript
+```jsx
 state = {
     characters: [],
   }
@@ -186,7 +186,7 @@ state = {
 1. Write the styling in a `.css` file and import it.
 1. Create a `const` variable and add JSON based styling, like below:
 
-```javascript
+```jsx
   const buttonStyle = {
     color: 'white',
     padding: '10px',
@@ -195,25 +195,25 @@ state = {
     border: '1px solid blue',
   }
 ```
-**Keep in mind, this is javascript and not css. We need to make sure that we write javascript code.**
+**Keep in mind, this is jsx and not css. We need to make sure that we write jsx code.**
 
 - To make changes to a style, write a function that does something and in it update the style. Since it a JSON object, changing it is just like any other object.
 
-```javascript
+```jsx
 buttonStyle.backgroundColor: 'red';
 ```
 
 #### To update classes:
 
 1. Initialize an array
-```javascript
+```jsx
   const classes = []
 ```
 
 1. Push into the array all the classes you wish using the `push()` method.
 1. Use the array in the `className` attributes like this,
 
-```javascript
+```jsx
 <div className={classes.join(' ')}></div>
 ```
 
@@ -222,7 +222,7 @@ buttonStyle.backgroundColor: 'red';
 - Install radium
 `npm install --save radium`
 - Radium allows us to use psuedo code in styling just like JSON objects. For e.g.:
-```javascript
+```jsx
 const buttonStyle = {
     color: 'white',
     padding: '10px',
@@ -236,7 +236,7 @@ const buttonStyle = {
   }
 ```
 - To refer to the psuedo codes, like `:hover `, `:after` and others:
-```javascript
+```jsx
   buttonStyle[':hover'] = {
     //new styles
   }
@@ -244,7 +244,7 @@ const buttonStyle = {
 - **Don't forget to encapsulate the final export `App` inside the `Radium()` block too.**
 
 - To use @media queries,
-```javascript
+```jsx
   const style = {
     '@media (min-width:500px)': {
       width: '450px',
@@ -253,7 +253,7 @@ const buttonStyle = {
 ```
 
 - **Use a hook provided my Radium to successfully execute media queries**
-```javascript
+```jsx
 import Radium, { StyleRoot } from 'radium';
 ...
 
@@ -273,7 +273,7 @@ render() {
 - Using this, we shall make the necessary changes to assign respective `.css` files to their `.js` files.
 
 ###### webpack.config.dev.js | Under 'module' object, inside test: /\.css$/ object
-```javascript
+```jsx
 use: [
   {
     loader: require.resolve('css-loader'),
@@ -286,7 +286,7 @@ use: [
 ```
 
 ###### webpack.config.prod.js | Under 'module' object, inside test: /\.css$/ object
-```javascript
+```jsx
 use: [
   {
     loader: require.resolve('css-loader'),
@@ -306,7 +306,7 @@ By doing this, we make sure that a `.css` file is used by only the respective `.
 - Or else, the styles, imported from external files, will not apply
 
 ###### App.js
-```javascript
+```jsx
 import styles from './App.css';
 ...
 ...
@@ -351,21 +351,21 @@ import styles from './App.css';
 1. The class is created when there is atleast one of the following methods:
 `static getDerivedStateFromError()` or `componentDidCatch()`
 1. These methods are responsible for maintaining the state of the class:
-```javascript
+```jsx
 state = {
   hasError: true,
   errorMessage: '',
 }
 ```
 1. `static getDerivedStateFromError(error)`:
-```javascript
+```jsx
 static getDerivedStateFromError(error) {
   // this method is responsible for setting the state to error ready
   return {hasError: true};
 }
 ```
 1. `componentDidCatch(error, errorInfo)`:
-```javascript
+```jsx
 componentDidCatch(error, errorInfo) {
   // this method is responsible for doing the things you'd want to do when an error occurs
   // you may return a fallback UI back to the component tree
@@ -381,7 +381,7 @@ componentDidCatch(error, errorInfo) {
 ```
 
 ###### ErrorBoundary/ErrorBoundary.js
-```javascript
+```jsx
 import React, { Component } from 'react';
 
 class ErrorBoundary extends Component {
@@ -444,7 +444,7 @@ can have the variable state and work on it | need to hook `{useState}` component
 
 - **Stage 1**
   - When a new component is created, the constructor of the component is created. The props of the components are also passed.
-  ```javascript
+  ```jsx
   constructor(props) {
     super(props); // <-- This is important to supercede the default constructor of the component
   }
@@ -458,7 +458,7 @@ can have the variable state and work on it | need to hook `{useState}` component
 - **Stage 2**
   - When the new component is created, it's parts are completed by placing the values received from props.
   - A desired output of the component is created.
-  ```javascript
+  ```jsx
   static getDerivedStateFromProp(props, state)
   ```
     - Do's
@@ -469,7 +469,7 @@ can have the variable state and work on it | need to hook `{useState}` component
 
 - **Stage 3**
   - Once completely created, the JSX code is executed and the component is then rendered.
-  ```javascript
+  ```jsx
   render()
   ```
     - Do's
@@ -481,7 +481,7 @@ can have the variable state and work on it | need to hook `{useState}` component
 
 - **Stage 5**
   - Once rendered, the component is then mounted onto the entire component tree of the web app.
-  ```javascript
+  ```jsx
   componentDidMount()
   ```
     - Do's
@@ -494,7 +494,7 @@ can have the variable state and work on it | need to hook `{useState}` component
 
 - **Stage 1**
   - Get the current state of the component from a function that also helps in component creation.
-  ```javascript
+  ```jsx
      static getDerivedStateFromProps(props, state)
   ```
     - Do's
@@ -504,7 +504,7 @@ can have the variable state and work on it | need to hook `{useState}` component
 
 - **Stage 2**
   - Check if the update activity of the component should happen
-  ```javascript
+  ```jsx
     shouldComponentUpdate(nextProps, nextState) {
       // example code
       //// do this for the one thing that matters the most
@@ -522,7 +522,7 @@ can have the variable state and work on it | need to hook `{useState}` component
 
 - **Stage 3**
   - Render the  component
-  ```javascript
+  ```jsx
     render() {
       return (); // Add JSX code here
     }
@@ -536,7 +536,7 @@ can have the variable state and work on it | need to hook `{useState}` component
 - **Stage 5**
   - Get the version of the component before the update happens
   - Get a snapshot of the component
-  ```javascript
+  ```jsx
     getSnapshotBeforeUpdate(prevProps, prevState) {
       return null; // return a snapshot value for componentDidUpdate to use
     }
@@ -548,7 +548,7 @@ can have the variable state and work on it | need to hook `{useState}` component
 
 - **Stage 6**
   - Update the component using the latest props, state
-  ```javascript
+  ```jsx
     componentDidUpdate(prevProps, prevState, snapshot) // use any argument
     // snapshot is received from the 'getSnapshotBeforeUpdate' function
   ```
