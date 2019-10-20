@@ -626,3 +626,50 @@ useEffect(() => {
 - You can also use the `PureComponent` class from the React library
   - This class takes responsibility of checking each prop that is passed to the component
   - If any prop from the prop list is changed, the component is re-rendered
+
+### Iterating multiple JSX component without a parent component
+It is possible to iterate multiple components or JSX elements from just one return function
+```jsx
+// rather than wrapping all the elements in one parent component
+return(
+  <div>
+    <p></p>
+    <p></p>
+  </div>
+);
+```
+
+1. Creating a list
+  - It is possible to send the JSX components as a list in the form as a list.
+  - This requires us to manually add a key to each list element though.
+  ```jsx
+  return [
+    <p key="item1"></p>,
+    <p key="item2"></p>
+  ];
+  ```
+
+1. Creating a high order component
+  - It is also allowed to create a high order component(hoc) that sits just under the `src` folder
+  - This component does nothing but only show its children the way they are
+  - If you are naming the hoc `Aux.js`:
+    - The name works fine in Linux and Unix environment but in Windows `Aux` is reserved
+    - _In windows, save the file as `Auxiliary.js`_
+
+  ###### Auxiliary.js
+  ```jsx
+  const auxiliary = props => props.children;
+  export default auxiliary;
+  ```
+  - Simply call this hoc into your desired `component.js` file and use it as a wrapping parent component.
+  ###### component.js
+  ```jsx
+  import Aux from '.../hoc/Auxiliary.js';
+  // some code
+  return (
+    <Aux>
+      <p></p>
+      <p></p>
+    </Aux>
+  );
+  ```
