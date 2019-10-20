@@ -438,7 +438,7 @@ class based components extend the components class | they are initialized as a n
 can have the variable state and work on it | need to hook `{useState}` component for React-v16 to use state functionality
 `this.state, this.props` | `props.attributeName`
 
-### Component Lifecycle
+### Component Lifecycle for class based components
 #### Component Lifecycle for creation
 *Lifecycle hooks not to be confused with React hooks*
 
@@ -506,7 +506,13 @@ can have the variable state and work on it | need to hook `{useState}` component
   - Check if the update activity of the component should happen
   ```javascript
     shouldComponentUpdate(nextProps, nextState) {
-      return true/false; // return a boolean
+      // example code
+      //// do this for the one thing that matters the most
+      if(nextProps.propName !== this.props.propName) {
+        return true; // true only if the props have changed
+      } else {
+        return false; // don't update as there is no change
+      }
     }
   ```
     - Do's
@@ -551,6 +557,13 @@ can have the variable state and work on it | need to hook `{useState}` component
     - Don'ts
       - Make changes to the state
 
+#### Deleting a component (Component Unmounting)
+- We can run special tasks when a component is removed from the React DOM.
+```jsx
+componentWillUnmount()
+```
+
+### Component lifecycle for function based component
 #### The `useEffect` hook
 
 - The useEffect is another hook provided by the React library.
@@ -583,14 +596,14 @@ const functionName = () => {
   }, [props.varName1, varName2]); // do something when varName1, varName2 change
 ```
 
-#### Deleting a component (Component Unmounting)
-##### Class based component
-- We can run special tasks when a component is removed from the React DOM.
+**How do you stop component re-rendering for function based components?**
+- React has the feature of memoing components
+- This makes the component keep track of its state
 ```jsx
-componentWillUnmount()
+export default React.memo(variable)
 ```
 
-##### Function based components
+##### Deleting a component
 Stateless functions need to use `{useEffect}` to manage the lifecycle of the component
 - To run special tasks when a component is removed
 ```jsx
