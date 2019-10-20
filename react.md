@@ -148,9 +148,16 @@ eventHandler(event, id) {
 <input type='text' onChange={(event) => this.eventHandler(event, id)} />
 ```
 
+### Conditional operations
 - To add conditional components in JSX, prefer using ternary operators.
-- To add complex conditional components in JSX, use if-else conditions outside of the return function. *Shown below*
+```jsx
+  someBoolean ? <div> </div> : null
+  // depending on the boolean value of 'someBoolean', either the
+  // div will show or not
+  someValue === someOtherValue ? <div> </div> : null
+```
 
+- To add complex conditional components in JSX, use if-else conditions outside of the return function. *Shown below*
 ```jsx
 render () {
   let person = null;
