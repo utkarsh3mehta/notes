@@ -616,3 +616,13 @@ useEffect(() => {
 ```
 - The first time useEffect is run, only creation activities take place
 - Everytime from the next iteration, first the clean up activities happen and then the component is re-rendered
+
+### Component Lifecycle Side-notes
+- *Be wary of adding `shouldComponentUpdate(nextProp, nextProp)`*
+  - Sometimes components need to change when their parent component change
+  - Supposing that 60% of your code is dependent on the parent. Adding this function will increase your run time as 60% of your code will then check if it should update itself
+  - _This is not wise_
+
+- You can also use the `PureComponent` class from the React library
+  - This class takes responsibility of checking each prop that is passed to the component
+  - If any prop from the prop list is changed, the component is re-rendered
