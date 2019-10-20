@@ -1,5 +1,4 @@
-# React Notes
-###### Cource by Maximillian in Udemy
+###### [Course](https://www.udemy.com/course/react-the-complete-guide-incl-redux/) by Maximillian in Udemy
 
 - To add conditional components in JSX, prefer using ternary operators.
 - To add complex conditional components in JSX, use if-else conditions outside of the return function. *Shown below*
