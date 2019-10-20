@@ -556,3 +556,29 @@ can have the variable state and work on it | need to hook `{useState}` component
 - The useEffect is another hook provided by the React library.
 - It is the second most commonly used hook, after useState
 - This hook is a part of the lifecycle and is run every time there is a render on the component
+- This hook is used when we need to manage component lifecycles in a stateless component
+```jsx
+import React, { useEffect } from 'react';
+const functionName = () => {
+  useEffect(() => {
+    console.log('[FunctionName.js] useEffect runs every time this component is rendered');
+  });
+}
+```
+- Let's say we want to run useEffect only when a component changes. 
+- We can do this by adding a second argument.
+- The second argument is the list of components, values that we want to monitor
+- We can use different useEffect functions for different values
+```jsx
+  useEffect(() => {
+    // do something
+  }, []); // this function does something only when nothing changes, which means, that it run only for the first time
+
+  useEffect(() => {
+    // do something
+  }, [props.varName]); // this function does something only when varName changes
+
+  useEffect(() => {
+    // do something
+  }, [props.varName1, varName2]); // do something when varName1, varName2 change
+```
