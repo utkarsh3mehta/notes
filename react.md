@@ -438,7 +438,7 @@ class based components extend the components class | they are initialized as a n
 can have the variable state and work on it | need to hook `{useState}` component for React-v16 to use state functionality
 `this.state, this.props` | `props.attributeName`
 
-### Component Lifecycle for component creation
+### Component Lifecycle for creation
 *Lifecycle hooks not to be confused with React hooks*
 
 - **Stage 1**
@@ -488,3 +488,59 @@ can have the variable state and work on it | need to hook `{useState}` component
       - Make calls outside the application
     - Don'ts
       - Change the state of the component. Or else, this will lead to re-rendering the component
+
+### Component lifecycle for updation
+
+- **Stage 1**
+  - Get the current state of the component from a function that also helps in component creation.
+  ```javascript
+    getDerivedStateFromProps(props, state) {}
+  ```
+    - Do's
+      - Sync the state
+    - Don'ts
+      - Cause side-effects
+
+- **Stage 2**
+  - Check if the update activity of the component should happen
+  ```javascript
+    shouldComponentUpdate(nextProps, nextState) {}
+  ```
+    - Do's
+      - Decide whether the component should be re-rendered
+    - Don'ts
+      - Cause side-effects
+
+- **Stage 3**
+  - Render the  component
+  ```javascript
+    render() {
+      return (); // Add JSX code here
+    }
+  ```
+    - Do's
+      - Structure the component using JSX code
+
+- **Stage 4**
+  - Render the children in the component
+
+- **Stage 5**
+  - Get the version of the component before the update happens
+  - Get a snapshot of the component
+  ```javascript
+    getSnapshotBeforeUpdate(prevProps, prevState) {}
+  ```
+    - Do's
+      - Last-minute DOM changes or operations
+    - Don'ts
+      - Cause side-effect
+
+- **Stage 6**
+  - Update the component using the latest props, state
+  ```javascript
+    componentDidUpdate() {}
+  ```
+    - Do's
+      - Cause side-effects
+    - Don'ts
+      - Make changes to the state
