@@ -85,7 +85,7 @@ create-react-app <app name> --script-version 1.1.5
 For eg.:
 ` useState `: This hook allows us to use state features in a functional component, where we cannot have states or set states.
 ```jsx
-// in a CLASS based component, we can simply initialize a varible 'state'
+// in a CLASS based component, we can simply initialize a variable 'state'
 // and do anything with it. Any change to the state makes a render call to the component
 constructor(props) {
   super(props);
@@ -117,7 +117,7 @@ import React, { useState } from 'react';
 const name = () => {
   const [count, setCount] = useState(0);
   // count = 0
-  // setCount is yet a blank function that can we used anywhere to manage the state of the 'count' variable
+  // setCount is yet a blank function that can be used anywhere to manage the state of the 'count' variable
   const [name, setName] = useState('Dot');
 
 // examplery code
@@ -135,7 +135,7 @@ eventHandler(event, id) {
   // code to search the correct person comes here
   // ...
   correctPerson.personName = event.target.value;
-  // event.targetby default takes the value from the DOM object that initiates the event
+  // event.target by default takes the value from the DOM object that initiates the event
   // newPerson is an array with the name of the person changed
   this.setState({
     person = newPerson;
@@ -166,7 +166,7 @@ render () {
       // JSX code comes here
     );
   }
-  
+
   return () {
     <div className="App">
       {person}
@@ -204,9 +204,9 @@ render () {
 
 **This still does not solve the key issue**
 
-**This does**
+**This does.**
 **Keep in mind that the key should always be the attribute of the highest parent class**
-- To solve the key issue, simple create an ID to each element in the array or object and pass it as key attributes.
+- To solve the key issue, simply create an ID to each element in the array or object and pass it as key attributes.
 
 ```jsx
 <Person key={person.id} />
@@ -221,11 +221,15 @@ array.splice(indexNumber, 1); // delete only 1 element starting from this index 
 - To edit only a single element from an array, the code is a bit complex. Hence, refer the comments written:
 
 ```jsx
-changeHandler = (event, id) => { // take inputs the event that changed the elements and id of the element
-  const elementIndex = this.state.array.findIndex(a => p.id === id); // search for the element where the 'id' matches
+changeHandler = (event, id) => { // take inputs the event that changed the elements 
+  // and id of the element
+  const elementIndex = this.state.array.findIndex(a => p.id === id); 
+  // search for the element where the 'id' matches
 
-  const element = [...this.state.array[elementIndex]] // get all the properties of the element at the 'elementIndex'
-  element.value = event.target.value; // change the desired value of the element to the one received via the event
+  const element = [...this.state.array[elementIndex]] 
+  // get all the properties of the element at the 'elementIndex'
+  element.value = event.target.value; 
+  // change the desired value of the element to the one received via the event
 
   const elementList = [...this.state.array] // get the list of elements in the state variable
   elementList[elementIndex] = element; // change the element at the 'elementIndex' to the one updated
@@ -294,12 +298,15 @@ state = {
   }
 
   inputChangeHandler = (event) => {
-    this.setState({characters: event.target.value.split('')});  // split every input text into character elements
+    this.setState({characters: event.target.value.split('')});  
+    // split every input text into character elements
   }
 
   hideCharHandler = (event, chIndex) => { // take event and character index as arguments
-    const characterList = [...this.state.characters] // spread the characters in 'state' and use the complete array rather than just a reference to the array
-    characterList.splice(chIndex, 1); // remove the element from the index of the input character
+    const characterList = [...this.state.characters] 
+    // spread the characters in 'state' and use the complete array rather than just a reference to the array
+    characterList.splice(chIndex, 1); 
+    // remove the element from the index of the input character
     this.setState({characters: characterList}); // save the state
   }
 
@@ -309,10 +316,12 @@ state = {
 
     charSet = (
       <div>
-        {this.state.characters.map((c, index) => { // dynamically create boxes for each character in the input box
+        {this.state.characters.map((c, index) => { 
+          // dynamically create boxes for each character in the input box
           return <UserOutput 
           content={c} 
-          click={(event) => this.hideCharHandler(event, index)} // run 'hideCharHandler' for each character
+          click={(event) => this.hideCharHandler(event, index)} 
+          // run 'hideCharHandler' for each character
           />
         })}
       </div>
@@ -324,7 +333,8 @@ state = {
         <UserInput 
         change={this.inputChangeHandler} 
         length={this.state.characters.length}
-        string={this.state.characters.join('')} // double bind the input box and the character list
+        string={this.state.characters.join('')} 
+        // double bind the input box and the character list
         />
         {charSet}
       </div>
@@ -570,7 +580,7 @@ export default ErrorBoundary;
 - Only keep the files related to `index` in the `src` folder.
 - Everything else must be in some folder inside the `src` folder.
 - Keep your final `App.js` or `Root.js` file and its dependencies in the `container` folder
-- Keepy your stateful components in the `container` folder
+- Keep your stateful components in the `container` folder
 - Keep your presentational components (stateless components) inside the `components` folder
 - For each component, create a new folder inside the `components` folder
 - Keep your images, videos and other files in the Assets folder
@@ -617,7 +627,7 @@ can have the variable state and work on it | need to hook `{useState}` component
   ```
     - Do's
       - Sync the state
-    -Don'ts
+    - Don'ts
       - Cause side-effects
       - Meaning make any out of application calls
 
@@ -721,7 +731,7 @@ componentWillUnmount()
 #### The `useEffect` hook
 
 - The useEffect is another hook provided by the React library.
-- It is the second most commonly used hook, after useState
+- It is the second most commonly used hook, after `useState`
 - This hook is a part of the lifecycle and is run every time there is a render on the component
 - This hook is used when we need to manage component lifecycles in a stateless component
 ```jsx
@@ -739,7 +749,8 @@ const functionName = () => {
 ```jsx
   useEffect(() => {
     // do something
-  }, []); // this function does something only when nothing changes, which means, that it run only for the first time
+  }, []); // this function does something only when nothing changes, 
+          // which means, that it run only for the first time
 
   useEffect(() => {
     // do something
