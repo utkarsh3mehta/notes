@@ -582,3 +582,24 @@ const functionName = () => {
     // do something
   }, [props.varName1, varName2]); // do something when varName1, varName2 change
 ```
+
+#### Deleting a component (Component Unmounting)
+##### Class based component
+- We can run special tasks when a component is removed from the React DOM.
+```jsx
+componentWillUnmount()
+```
+
+##### Function based components
+Stateless functions need to use `{useEffect}` to manage the lifecycle of the component
+- To run special tasks when a component is removed
+```jsx
+useEffect(() => {
+  // do  creation activities
+  return () => {
+    // do cleanup activities
+  }
+}, [])
+```
+- The first time useEffect is run, only creation activities take place
+- Everytime from the next iteration, first the clean up activities happen and then the component is re-rendered
