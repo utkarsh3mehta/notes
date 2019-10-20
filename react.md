@@ -495,7 +495,7 @@ can have the variable state and work on it | need to hook `{useState}` component
 - **Stage 1**
   - Get the current state of the component from a function that also helps in component creation.
   ```javascript
-    getDerivedStateFromProps(props, state) {}
+     static getDerivedStateFromProps(props, state)
   ```
     - Do's
       - Sync the state
@@ -505,7 +505,9 @@ can have the variable state and work on it | need to hook `{useState}` component
 - **Stage 2**
   - Check if the update activity of the component should happen
   ```javascript
-    shouldComponentUpdate(nextProps, nextState) {}
+    shouldComponentUpdate(nextProps, nextState) {
+      return true/false; // return a boolean
+    }
   ```
     - Do's
       - Decide whether the component should be re-rendered
@@ -529,7 +531,9 @@ can have the variable state and work on it | need to hook `{useState}` component
   - Get the version of the component before the update happens
   - Get a snapshot of the component
   ```javascript
-    getSnapshotBeforeUpdate(prevProps, prevState) {}
+    getSnapshotBeforeUpdate(prevProps, prevState) {
+      return null; // return a snapshot value for componentDidUpdate to use
+    }
   ```
     - Do's
       - Last-minute DOM changes or operations
@@ -539,7 +543,8 @@ can have the variable state and work on it | need to hook `{useState}` component
 - **Stage 6**
   - Update the component using the latest props, state
   ```javascript
-    componentDidUpdate() {}
+    componentDidUpdate(prevProps, prevState, snapshot) // use any argument
+    // snapshot is received from the 'getSnapshotBeforeUpdate' function
   ```
     - Do's
       - Cause side-effects
