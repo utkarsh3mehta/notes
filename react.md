@@ -1,6 +1,153 @@
 # ReactJS Notes
 ###### [Course](https://www.udemy.com/course/react-the-complete-guide-incl-redux/) by Maximillian in Udemy
 
+- ReactJS is read by the Babel javascript compiler.
+- React works by making everything as a component
+- Got for making single page application(SPA)
+
+#### Sharing resource in React
+- We can share components in React by importing and exporting elements, variables, functions, classes
+- For exporting
+###### person.js
+```jsx
+// code here
+export const varName1;
+export const varName2; // we can export multiple variables from a .js file
+export default person; // default keywork means that if someone imports this .js file, 
+// 'person' will be exported by default
+```
+
+-For importing
+###### app.js
+```jsx
+import prs from person.js; // this import the default variable from the person.js. ie. person
+import {varName1, varName2} from person.js; // importing variables other than the default one
+// requires that we name them exactly the way they were initialized
+// ------ WE CAN ALSO IMPORT AS ----------------
+import { varName1 as var1 } from person.js; // this way we can use varName1 as var1
+// ------ WE CAN ALSO IMPORT AS ----------------
+import * as bundled from person.js; // we import everything that person.js as exported
+// use the imported variables as
+// bundled.varName1;
+```
+
+- Initializing a constructor function requires that we also call the `super()` function.
+  This way, we make sure that all other functionality of the default constructor run as well.
+
+#### Spread/Rest operator
+
+`...` : This can be used for multiple reasons.
+For example
+```jsx
+// initialize an array
+number = [1,2,3]
+newnumber = [...number, 4]
+// newnumber is [1,2,3,4]
+
+// initialize an object
+person = {name: 'Arthur'}
+personInfo = {...person, age: 24}
+// personInfo is {name: 'Arthur', age: 24}
+```
+
+#### Destructuring an array
+```jsx
+number = [1,2]
+[a,b] = number
+// a = 1
+// b = 2
+```
+
+#### Array map function
+The map function takes an arrow function and outputs a new array that has each element of the original array processed through the defined arrow function
+```jsx
+number = [1,2,3]
+double = number.map(num => num*2)
+// double is [2,4,6]
+```
+
+### ReactJS workflow
+- Dependency manager: npm
+- Bundler: webpack
+- Compiler: Babel + presets
+- Dev server: Node JS
+
+Once Node JS is installed, run the below in your command line
+```
+npm install create-react-app -g
+
+create-react-app <app name> --script-version 1.1.5
+```
+
+### React Hooks
+- React Hooks are functionality that have been provided since the latest version of React v16
+- React Hooks allow us to give functional components(stateless) the feature of a class based component(stateful)
+For eg.:
+` useState `: This hook allows us to use state features in a functional component, where we cannot have states or set states.
+```jsx
+// in a CLASS based component, we can simply initialize a varible 'state'
+// and do anything with it. Any change to the state makes a render call to the component
+constructor(props) {
+  super(props);
+  this.state = {
+    person: 'abc',
+    just: 'what?',
+  }
+}
+
+// to call the state variables,
+this.state.person
+
+// to update just one part of the state, we can,
+this.setState({
+  just: 'nothing_much'
+})
+// the state is now:
+// {
+//   person: 'abc',
+//   just: 'nothing_much',
+// }
+
+// ------------------------------------
+
+// in a FUNCTIONAL based component, we need to import the 'useState' react hook
+import React, { useState } from 'react';
+// with 'useState' we can only manage one variable with one state
+// for this, it is better to useState for different variables separately
+const name = () => {
+  const [count, setCount] = useState(0);
+  // count = 0
+  // setCount is yet a blank function that can we used anywhere to manage the state of the 'count' variable
+  const [name, setName] = useState('Dot');
+
+// examplery code
+  return (() => setCount(count + 2));
+  // this way you can change the value of count anywhere and however
+}
+
+// to use the variable
+console.log(count);
+```
+
+### Sending arguments to event handing functions
+```jsx
+eventHandler(event, id) {
+  // code to search the correct person comes here
+  // ...
+  correctPerson.personName = event.target.value;
+  // event.targetby default takes the value from the DOM object that initiates the event
+  // newPerson is an array with the name of the person changed
+  this.setState({
+    person = newPerson;
+  });
+}
+
+// to assign an event to this function,
+<input type='text' onChange={this.eventHandler.bind(this, id)} />
+// ----- OR ------
+<input type='text' onChange={(event) => this.eventHandler(event, id)} />
+```
+
 - To add conditional components in JSX, prefer using ternary operators.
 - To add complex conditional components in JSX, use if-else conditions outside of the return function. *Shown below*
 
