@@ -17,7 +17,7 @@ export default person; // default keywork means that if someone imports this .js
 // 'person' will be exported by default
 ```
 
--For importing
+- For importing
 ###### app.js
 ```jsx
 import prs from person.js; // this import the default variable from the person.js. ie. person
