@@ -550,3 +550,9 @@ can have the variable state and work on it | need to hook `{useState}` component
       - Cause side-effects
     - Don'ts
       - Make changes to the state
+
+#### The `useEffect` hook
+
+- The useEffect is another hook provided by the React library.
+- It is the second most commonly used hook, after useState
+- This hook is a part of the lifecycle and is run every time there is a render on the component
