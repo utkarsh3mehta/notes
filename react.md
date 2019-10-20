@@ -409,8 +409,8 @@ class ErrorBoundary extends Component {
 export default ErrorBoundary;
 ```
 
-### Deep Dive
-#### Proper file structuring
+## Deep Dive
+### Proper file structuring
 
 - It is better to place the files in a proper folder structure
 - Only keep the files related to `index` in the `src` folder.
@@ -438,7 +438,8 @@ class based components extend the components class | they are initialized as a n
 can have the variable state and work on it | need to hook `{useState}` component for React-v16 to use state functionality
 `this.state, this.props` | `props.attributeName`
 
-### Component Lifecycle for creation
+### Component Lifecycle
+#### Component Lifecycle for creation
 *Lifecycle hooks not to be confused with React hooks*
 
 - **Stage 1**
@@ -489,7 +490,7 @@ can have the variable state and work on it | need to hook `{useState}` component
     - Don'ts
       - Change the state of the component. Or else, this will lead to re-rendering the component
 
-### Component lifecycle for updation
+#### Component lifecycle for updation
 
 - **Stage 1**
   - Get the current state of the component from a function that also helps in component creation.
