@@ -1,3 +1,4 @@
+# ReactJS Notes
 ###### [Course](https://www.udemy.com/course/react-the-complete-guide-incl-redux/) by Maximillian in Udemy
 
 - To add conditional components in JSX, prefer using ternary operators.
