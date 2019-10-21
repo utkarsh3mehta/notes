@@ -1,4 +1,5 @@
 # ReactJS Notes
+
 ###### [Course](https://www.udemy.com/course/react-the-complete-guide-incl-redux/) by Maximillian in Udemy
 
 - ReactJS is read by the Babel javascript compiler.
@@ -6,10 +7,13 @@
 - Got for making single page application(SPA)
 
 #### Sharing resource in React
+
 - We can share components in React by importing and exporting elements, variables, functions, classes
 - For exporting
-###### person.js
+
 ```jsx
+// person.js
+
 // code here
 export const varName1;
 export const varName2; // we can export multiple variables from a .js file
@@ -18,8 +22,10 @@ export default person; // default keywork means that if someone imports this .js
 ```
 
 - For importing
-###### app.js
+
 ```jsx
+// app.js
+
 import prs from person.js; // this import the default variable from the person.js. ie. person
 import {varName1, varName2} from person.js; // importing variables other than the default one
 // requires that we name them exactly the way they were initialized
@@ -38,6 +44,7 @@ import * as bundled from person.js; // we import everything that person.js as ex
 
 `...` : This can be used for multiple reasons.
 For example
+
 ```jsx
 // initialize an array
 number = [1,2,3]
@@ -51,6 +58,7 @@ personInfo = {...person, age: 24}
 ```
 
 #### Destructuring an array
+
 ```jsx
 number = [1,2]
 [a,b] = number
@@ -59,7 +67,9 @@ number = [1,2]
 ```
 
 #### Array map function
+
 The map function takes an arrow function and outputs a new array that has each element of the original array processed through the defined arrow function
+
 ```jsx
 number = [1,2,3]
 double = number.map(num => num*2)
@@ -67,23 +77,27 @@ double = number.map(num => num*2)
 ```
 
 ### ReactJS workflow
+
 - Dependency manager: npm
 - Bundler: webpack
 - Compiler: Babel + presets
 - Dev server: Node JS
 
 Once Node JS is installed, run the below in your command line
-```
+
+```cli
 npm install create-react-app -g
 
 create-react-app <app name> --script-version 1.1.5
 ```
 
 ### React Hooks
+
 - React Hooks are functionality that have been provided since the latest version of React v16
 - React Hooks allow us to give functional components(stateless) the feature of a class based component(stateful)
 For eg.:
-` useState `: This hook allows us to use state features in a functional component, where we cannot have states or set states.
+`useState`: This hook allows us to use state features in a functional component, where we cannot have states or set states.
+
 ```jsx
 // in a CLASS based component, we can simply initialize a variable 'state'
 // and do anything with it. Any change to the state makes a render call to the component
@@ -130,6 +144,7 @@ console.log(count);
 ```
 
 ### Sending arguments to event handing functions
+
 ```jsx
 eventHandler(event, id) {
   // code to search the correct person comes here
@@ -149,7 +164,9 @@ eventHandler(event, id) {
 ```
 
 ### Conditional operations
+
 - To add conditional components in JSX, prefer using ternary operators.
+
 ```jsx
   someBoolean ? <div> </div> : null
   // depending on the boolean value of 'someBoolean', either the
@@ -158,6 +175,7 @@ eventHandler(event, id) {
 ```
 
 - To add complex conditional components in JSX, use if-else conditions outside of the return function. *Shown below*
+
 ```jsx
 render () {
   let person = null;
@@ -174,31 +192,26 @@ render () {
   };
 }
 ```
- 
+
 - To execute loops in the react, use Vanilla JS `.map()` function. *Shown below*
 
 ```jsx
 {this.persons.map(person => {
-  return <Person 
-    name={person.name}
-    age={person.age}
-  />
+  return <Person name={person.name} age={person.age} />
 })}
 ```
+
 **You might get a 'key' warning if you run the above code.**
 
 - When you run loops, the `map()` function also allows you the index of each array element. For e.g.:
+
 ```jsx
 {this.persons.map((person, index) => {
-  return <Person 
-    click={() => this.someEventHandler(index)}
-    name={person.name}
-    age={person.age}
-  />
+  return <Person click={() => this.someEventHandler(index)} name={person.name} age={person.age} />
 })}
 ```
 
-- Always save the original array to another variable. Let's say that personList is an array. 
+- Always save the original array to another variable. Let's say that personList is an array.
 - `persons = personList` is only a passing of reference values.
 - It is a better idea to `persons = personList.slice()` or `persons = [...personList]`
 
@@ -206,6 +219,7 @@ render () {
 
 **This does.**
 **Keep in mind that the key should always be the attribute of the highest parent class**
+
 - To solve the key issue, simply create an ID to each element in the array or object and pass it as key attributes.
 
 ```jsx
@@ -221,14 +235,14 @@ array.splice(indexNumber, 1); // delete only 1 element starting from this index 
 - To edit only a single element from an array, the code is a bit complex. Hence, refer the comments written:
 
 ```jsx
-changeHandler = (event, id) => { // take inputs the event that changed the elements 
+changeHandler = (event, id) => { // take inputs the event that changed the elements
   // and id of the element
-  const elementIndex = this.state.array.findIndex(a => p.id === id); 
+  const elementIndex = this.state.array.findIndex(a => p.id === id);
   // search for the element where the 'id' matches
 
-  const element = [...this.state.array[elementIndex]] 
+  const element = [...this.state.array[elementIndex]]
   // get all the properties of the element at the 'elementIndex'
-  element.value = event.target.value; 
+  element.value = event.target.value;
   // change the desired value of the element to the one received via the event
 
   const elementList = [...this.state.array] // get the list of elements in the state variable
@@ -238,12 +252,14 @@ changeHandler = (event, id) => { // take inputs the event that changed the eleme
 ```
 
 ### Assignment II
+
 - Create an input text and take text input
 - Show each character below the input box
 - Clicking on any character will remove the character from the input box and from the character list.
 
-###### UserInput.js
 ```jsx
+// UserInput.js
+
 const userInput = (props) => {
 
     let output = null;
@@ -269,8 +285,9 @@ const userInput = (props) => {
 export default userInput;
 ```
 
-###### UserOutput.js
 ```jsx
+// UserOutput.js
+
 const charStyle = {
     display: 'inline-block',
     border: '1px solid black',
@@ -282,7 +299,6 @@ const userOutput = (props) => {
     return (
         <p style={charStyle} onClick={props.click}>{props.content}</p>
     );
-    
     // This will render something like this
     //
     // _  _  _ _  _  _  _  _
@@ -291,8 +307,9 @@ const userOutput = (props) => {
 export default userOutput;
 ```
 
-###### app.js
 ```jsx
+// app.js
+
 state = {
     characters: [],
   }
@@ -303,9 +320,9 @@ state = {
   }
 
   hideCharHandler = (event, chIndex) => { // take event and character index as arguments
-    const characterList = [...this.state.characters] 
+    const characterList = [...this.state.characters]
     // spread the characters in 'state' and use the complete array rather than just a reference to the array
-    characterList.splice(chIndex, 1); 
+    characterList.splice(chIndex, 1);
     // remove the element from the index of the input character
     this.setState({characters: characterList}); // save the state
   }
@@ -316,11 +333,11 @@ state = {
 
     charSet = (
       <div>
-        {this.state.characters.map((c, index) => { 
+        {this.state.characters.map((c, index) => {
           // dynamically create boxes for each character in the input box
-          return <UserOutput 
-          content={c} 
-          click={(event) => this.hideCharHandler(event, index)} 
+          return <UserOutput
+          content={c}
+          click={(event) => this.hideCharHandler(event, index)}
           // run 'hideCharHandler' for each character
           />
         })}
@@ -330,10 +347,10 @@ state = {
     return (
       <div className='App'>
         <p>Hi There</p>
-        <UserInput 
-        change={this.inputChangeHandler} 
+        <UserInput
+        change={this.inputChangeHandler}
         length={this.state.characters.length}
-        string={this.state.characters.join('')} 
+        string={this.state.characters.join('')}
         // double bind the input box and the character list
         />
         {charSet}
@@ -359,6 +376,7 @@ state = {
     border: '1px solid blue',
   }
 ```
+
 **Keep in mind, this is jsx and not css. We need to make sure that we write jsx code.**
 
 - To make changes to a style, write a function that does something and in it update the style. Since it a JSON object, changing it is just like any other object.
@@ -370,6 +388,7 @@ buttonStyle.backgroundColor: 'red';
 #### To update classes:
 
 1. Initialize an array
+
 ```jsx
   const classes = []
 ```
@@ -386,6 +405,7 @@ buttonStyle.backgroundColor: 'red';
 - Install radium
 `npm install --save radium`
 - Radium allows us to use psuedo code in styling just like JSON objects. For e.g.:
+
 ```jsx
 const buttonStyle = {
     color: 'white',
@@ -399,15 +419,19 @@ const buttonStyle = {
     }
   }
 ```
-- To refer to the psuedo codes, like `:hover `, `:after` and others:
+
+- To refer to the psuedo codes, like `:hover`, `:after` and others:
+
 ```jsx
   buttonStyle[':hover'] = {
     //new styles
   }
 ```
+
 - **Don't forget to encapsulate the final export `App` inside the `Radium()` block too.**
 
 - To use @media queries,
+
 ```jsx
   const style = {
     '@media (min-width:500px)': {
@@ -417,6 +441,7 @@ const buttonStyle = {
 ```
 
 - **Use a hook provided my Radium to successfully execute media queries**
+
 ```jsx
 import Radium, { StyleRoot } from 'radium';
 ...
@@ -436,8 +461,9 @@ render() {
 - `Eject` explodes the scripts and webpacks. This allows us to make configuration changes.
 - Using this, we shall make the necessary changes to assign respective `.css` files to their `.js` files.
 
-###### webpack.config.dev.js | Under 'module' object, inside test: /\.css$/ object
 ```jsx
+// webpack.config.dev.js | Under 'module' object, inside test: /\.css$/ object
+
 use: [
   {
     loader: require.resolve('css-loader'),
@@ -449,8 +475,9 @@ use: [
   },
 ```
 
-###### webpack.config.prod.js | Under 'module' object, inside test: /\.css$/ object
 ```jsx
+// webpack.config.prod.js | Under 'module' object, inside test: /\.css$/ object
+
 use: [
   {
     loader: require.resolve('css-loader'),
@@ -469,8 +496,9 @@ By doing this, we make sure that a `.css` file is used by only the respective `.
 - Keep in mind, to use the styles now, we need to import a variable from the `.css` files now.
 - Or else, the styles, imported from external files, will not apply
 
-###### App.js
 ```jsx
+// App.js
+
 import styles from './App.css';
 ...
 ...
@@ -481,6 +509,7 @@ import styles from './App.css';
 **With this in place, we do not need 'Radium' class**
 
 *To make a css style global, you can even mark it as `:global`*
+
 ```css
 :global .ClassName {}
 ```
@@ -509,26 +538,32 @@ import styles from './App.css';
 1. [*Check here for a live demo*](https://codepen.io/gaearon/pen/wqvxGa?editors=0010)
 
 ##### Details about the class
+
 1. ErrorBoundary is a class that helps react maintain the component tree even if one component breaks.
 1. The class extends the Component class
 1. If there is no error in the component, the elements inside the component are passed on to the ErrorBoundary class as the `props.children`. You can use it to show the elements, if there is no error.
 1. The class is created when there is atleast one of the following methods:
 `static getDerivedStateFromError()` or `componentDidCatch()`
 1. These methods are responsible for maintaining the state of the class:
+
 ```jsx
 state = {
   hasError: true,
   errorMessage: '',
 }
 ```
+
 1. `static getDerivedStateFromError(error)`:
+
 ```jsx
 static getDerivedStateFromError(error) {
   // this method is responsible for setting the state to error ready
   return {hasError: true};
 }
 ```
+
 1. `componentDidCatch(error, errorInfo)`:
+
 ```jsx
 componentDidCatch(error, errorInfo) {
   // this method is responsible for doing the things you'd want to do when an error occurs
@@ -537,15 +572,18 @@ componentDidCatch(error, errorInfo) {
   // you may change the state of the class to save the errorInfo as the errorMessage
 }
 ```
+
 1. Once all the above step have been completed, you may use the class as a component and wrap and breakable components inside it
+
 ```html
 <ErrorBoundary>
 <breakableAppComponent />
 </ErrorBoundary>
 ```
 
-###### ErrorBoundary/ErrorBoundary.js
 ```jsx
+// ErrorBoundary/ErrorBoundary.js
+
 import React, { Component } from 'react';
 
 class ErrorBoundary extends Component {
@@ -574,6 +612,7 @@ export default ErrorBoundary;
 ```
 
 ## Deep Dive
+
 ### Proper file structuring
 
 - It is better to place the files in a proper folder structure
@@ -590,6 +629,7 @@ Something like this:
 ![Image of the file structure](react-file-structure.PNG)
 
 Why is folder structuring important?
+
 - It is important to keep the `App.js` file concise and short.
 - Breaking components into smaller components makes it easy to re-use the components else where.
 - Structuring the folder helps in finding a component.
@@ -603,16 +643,20 @@ can have the variable state and work on it | need to hook `{useState}` component
 `this.state, this.props` | `props.attributeName`
 
 ### Component Lifecycle for class based components
+
 #### Component Lifecycle for creation
-*Lifecycle hooks not to be confused with React hooks*
+
+_Lifecycle hooks not to be confused with React hooks_
 
 - **Stage 1**
   - When a new component is created, the constructor of the component is created. The props of the components are also passed.
+
   ```jsx
   constructor(props) {
     super(props); // <-- This is important to supercede the default constructor of the component
   }
   ```
+
     - Do's
       - Set up state variable
     - Don'ts
@@ -622,9 +666,11 @@ can have the variable state and work on it | need to hook `{useState}` component
 - **Stage 2**
   - When the new component is created, it's parts are completed by placing the values received from props.
   - A desired output of the component is created.
+
   ```jsx
   static getDerivedStateFromProp(props, state)
   ```
+
     - Do's
       - Sync the state
     - Don'ts
@@ -633,9 +679,11 @@ can have the variable state and work on it | need to hook `{useState}` component
 
 - **Stage 3**
   - Once completely created, the JSX code is executed and the component is then rendered.
+
   ```jsx
   render()
   ```
+
     - Do's
       - Prepare the structure of the component in JSX code
 
@@ -645,9 +693,11 @@ can have the variable state and work on it | need to hook `{useState}` component
 
 - **Stage 5**
   - Once rendered, the component is then mounted onto the entire component tree of the web app.
+
   ```jsx
   componentDidMount()
   ```
+
     - Do's
       - Cause side-effect
       - Make calls outside the application
@@ -658,9 +708,11 @@ can have the variable state and work on it | need to hook `{useState}` component
 
 - **Stage 1**
   - Get the current state of the component from a function that also helps in component creation.
+
   ```jsx
      static getDerivedStateFromProps(props, state)
   ```
+
     - Do's
       - Sync the state
     - Don'ts
@@ -668,6 +720,7 @@ can have the variable state and work on it | need to hook `{useState}` component
 
 - **Stage 2**
   - Check if the update activity of the component should happen
+
   ```jsx
     shouldComponentUpdate(nextProps, nextState) {
       // example code
@@ -679,6 +732,7 @@ can have the variable state and work on it | need to hook `{useState}` component
       }
     }
   ```
+
     - Do's
       - Decide whether the component should be re-rendered
     - Don'ts
@@ -686,11 +740,13 @@ can have the variable state and work on it | need to hook `{useState}` component
 
 - **Stage 3**
   - Render the  component
+
   ```jsx
     render() {
       return (); // Add JSX code here
     }
   ```
+
     - Do's
       - Structure the component using JSX code
 
@@ -700,11 +756,13 @@ can have the variable state and work on it | need to hook `{useState}` component
 - **Stage 5**
   - Get the version of the component before the update happens
   - Get a snapshot of the component
+
   ```jsx
     getSnapshotBeforeUpdate(prevProps, prevState) {
       return null; // return a snapshot value for componentDidUpdate to use
     }
   ```
+
     - Do's
       - Last-minute DOM changes or operations
     - Don'ts
@@ -712,28 +770,34 @@ can have the variable state and work on it | need to hook `{useState}` component
 
 - **Stage 6**
   - Update the component using the latest props, state
+
   ```jsx
     componentDidUpdate(prevProps, prevState, snapshot) // use any argument
     // snapshot is received from the 'getSnapshotBeforeUpdate' function
   ```
+
     - Do's
       - Cause side-effects
     - Don'ts
       - Make changes to the state
 
 #### Deleting a component (Component Unmounting)
+
 - We can run special tasks when a component is removed from the React DOM.
+
 ```jsx
 componentWillUnmount()
 ```
 
 ### Component lifecycle for function based component
+
 #### The `useEffect` hook
 
 - The useEffect is another hook provided by the React library.
 - It is the second most commonly used hook, after `useState`
 - This hook is a part of the lifecycle and is run every time there is a render on the component
 - This hook is used when we need to manage component lifecycles in a stateless component
+
 ```jsx
 import React, { useEffect } from 'react';
 const functionName = () => {
@@ -742,10 +806,12 @@ const functionName = () => {
   });
 }
 ```
+
 - Let's say we want to run useEffect only when a component changes. 
 - We can do this by adding a second argument.
 - The second argument is the list of components, values that we want to monitor
 - We can use different useEffect functions for different values
+
 ```jsx
   useEffect(() => {
     // do something
@@ -762,15 +828,20 @@ const functionName = () => {
 ```
 
 **How do you stop component re-rendering for function based components?**
+
 - React has the feature of memoing components
 - This makes the component keep track of its state
+
 ```jsx
 export default React.memo(variable)
 ```
 
 ##### Deleting a component
+
 Stateless functions need to use `{useEffect}` to manage the lifecycle of the component
+
 - To run special tasks when a component is removed
+
 ```jsx
 useEffect(() => {
   // do  creation activities
@@ -779,10 +850,12 @@ useEffect(() => {
   }
 }, [])
 ```
+
 - The first time useEffect is run, only creation activities take place
 - Everytime from the next iteration, first the clean up activities happen and then the component is re-rendered
 
 ### Component Lifecycle Side-notes
+
 - *Be wary of adding `shouldComponentUpdate(nextProp, nextProp)`*
   - Sometimes components need to change when their parent component change
   - Supposing that 60% of your code is dependent on the parent. Adding this function will increase your run time as 60% of your code will then check if it should update itself
@@ -793,7 +866,9 @@ useEffect(() => {
   - If any prop from the prop list is changed, the component is re-rendered
 
 ### Iterating multiple JSX component without a parent component
+
 It is possible to iterate multiple components or JSX elements from just one return function
+
 ```jsx
 // rather than wrapping all the elements in one parent component
 return(
@@ -805,8 +880,10 @@ return(
 ```
 
 1. Creating a list
-  - It is possible to send the JSX components as a list in the form as a list.
-  - This requires us to manually add a key to each list element though.
+
+- It is possible to send the JSX components as a list in the form as a list.
+- This requires us to manually add a key to each list element though.
+  
   ```jsx
   return [
     <p key="item1"></p>,
@@ -815,33 +892,39 @@ return(
   ```
 
 ### High Order Component
-#### For iterating multiple JSX component without a parent component
-1. Creating a high order component
-  - It is also allowed to create a high order component(hoc) that sits just under the `src` folder
-  - This component does nothing but only show its children the way they are
-  - If you are naming the hoc `Aux.js`:
-    - The name works fine in Linux and Unix environment but in Windows `Aux` is reserved
-    - _In windows, save the file as `Auxiliary.js`_
 
-  ###### Auxiliary.js
-  ```jsx
-  const auxiliary = props => props.children;
-  export default auxiliary;
-  ```
-  - Simply call this hoc into your desired `component.js` file and use it as a wrapping parent component.
-  ###### component.js
-  ```jsx
-  import Aux from '.../hoc/Auxiliary.js';
-  // some code
-  return (
-    <Aux>
-      <p></p>
-      <p></p>
-    </Aux>
-  );
-  ```
+#### For iterating multiple JSX component without a parent component
+
+1. Creating a high order component
+
+- It is also allowed to create a high order component(hoc) that sits just under the `src` folder
+- This component does nothing but only show its children the way they are
+- If you are naming the hoc `Aux.js`:
+  - The name works fine in Linux and Unix environment but in Windows `Aux` is reserved
+  - _In windows, save the file as `Auxiliary.js`_
+- Simply call this hoc into your desired `component.js` file and use it as a wrapping parent component.
+
+```jsx
+// Auxiliary.js
+const auxiliary = props => props.children;
+export default auxiliary;
+```
+
+```jsx
+// component.js
+import Aux from '.../hoc/Auxiliary.js';
+// some code
+return (
+  <Aux>
+    <p></p>
+    <p></p>
+  </Aux>
+);
+```
+
 - React by default gives us this hoc called as Fragment.
 - Like Component, we can import the Fragment class as well and wrap our components inside the `<Fragment></Fragment>` block
+
 ```jsx
 import React, { Component, Fragment } from 'react';
 
@@ -855,8 +938,10 @@ class ClassName extends Component {
   }
 }
 ```
+
 - The problem with this is that it does not take any styling or other attributes
 - To create hocs that also take stylings and other attributes
+
 ```jsx
 import React from 'react';
 const withClass = props => (
@@ -867,7 +952,9 @@ export default withClass;
 //  to use this hoc
 <WithClass classes={styles.ClassName}>...</WithClass>
 ```
+
 - You can also create a function based HOC that takes the component as an argument and renders it as desired
+
 ```jsx
 // supposing that we want to add a class attribute to a component
 import React from 'react';
