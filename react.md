@@ -945,7 +945,7 @@ class ClassName extends Component {
 ```jsx
 import React from 'react';
 const withClass = props => (
-  <div className={props.classes}>{props.childred}</div>
+  <div className={props.classes}>{props.children}</div>
 );
 export default withClass;
 // --------------
