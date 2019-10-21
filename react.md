@@ -814,6 +814,8 @@ return(
   ];
   ```
 
+### High Order Component
+#### For iterating multiple JSX component without a parent component
 1. Creating a high order component
   - It is also allowed to create a high order component(hoc) that sits just under the `src` folder
   - This component does nothing but only show its children the way they are
@@ -838,3 +840,52 @@ return(
     </Aux>
   );
   ```
+- React by default gives us this hoc called as Fragment.
+- Like Component, we can import the Fragment class as well and wrap our components inside the `<Fragment></Fragment>` block
+```jsx
+import React, { Component, Fragment } from 'react';
+
+class ClassName extends Component {
+  render() {
+    return (
+      <Fragment>
+      ...
+      </ Fragment>
+    )
+  }
+}
+```
+- The problem with this is that it does not take any styling or other attributes
+- To create hocs that also take stylings and other attributes
+```jsx
+import React from 'react';
+const withClass = props => (
+  <div className={props.classes}>{props.childred}</div>
+);
+export default withClass;
+// --------------
+//  to use this hoc
+<WithClass classes={styles.ClassName}>...</WithClass>
+```
+- You can also create a function based HOC that takes the component as an argument and renders it as desired
+```jsx
+// supposing that we want to add a class attribute to a component
+import React from 'react';
+const componentWrapper = (WrappedComponent, className) => {
+  return (props) => (
+    <div class={className}><WrappedComponent {...props} /></div>
+  );
+}
+export default componentWrapper;
+
+// in the files where we import this
+import compWrapper from '.../hoc/componentWrapper';
+...
+// add the compWrapper where you are exporting the main function of the file
+export default compWrapper(App, classes.App);
+
+
+// as seen above, componentWrapper takes two arguments
+// the component to wrap and a classname
+// and that is what we have provided
+```
