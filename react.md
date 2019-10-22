@@ -362,7 +362,7 @@ state = {
 
 ### Dynamic styling
 
-#### To enter styles, there are two ways:
+**To enter styles, there are two ways:**
 
 1. Write the styling in a `.css` file and import it.
 1. Create a `const` variable and add JSON based styling, like below:
@@ -385,7 +385,7 @@ state = {
 buttonStyle.backgroundColor: 'red';
 ```
 
-#### To update classes:
+#### To update classes
 
 1. Initialize an array
 
