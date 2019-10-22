@@ -976,3 +976,19 @@ export default compWrapper(App, classes.App);
 // the component to wrap and a classname
 // and that is what we have provided
 ```
+
+#### The right way of changing state
+
+It is quite possible that we may change the state by changing some part of the state itself. That is not good practice.
+It is possible that you might be dealing with a later version of the state while changing the state at some place.
+Hence, it is recommended to change the state, especially when using the value of the state itself.
+
+```jsx
+this.setState((prevState) => {
+  return {
+    stateElement: prevState.stateElement + 1,
+  }
+})
+```
+
+This way, we can use a defined latest version of the state and not miss any state change.
