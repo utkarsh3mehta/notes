@@ -992,3 +992,28 @@ this.setState((prevState) => {
 ```
 
 This way, we can use a defined latest version of the state and not miss any state change.
+
+#### Prop types
+
+Prop types is an extra module that we can use to make sure that the props that are passed to any component are corrent.
+Rather than the component breaking, Proptype will show an error on the `console`.
+
+```cli
+npm install --save prop-types
+```
+
+```jsx
+// in your component files, where you'd like to add a type validation for props
+
+import PropType from 'prop-types';
+...
+// after the class or functional component is defined, we can add a final type validation outside the class/function
+}
+
+ClassName.propType = {
+  prop1: PropType.func,
+  prop2: PropType.string,
+  prop3: PropType.number,
+}
+```
+
