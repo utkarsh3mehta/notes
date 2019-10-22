@@ -977,7 +977,7 @@ export default compWrapper(App, classes.App);
 // and that is what we have provided
 ```
 
-#### The right way of changing state
+### The right way of changing state
 
 It is quite possible that we may change the state by changing some part of the state itself. That is not good practice.
 It is possible that you might be dealing with a later version of the state while changing the state at some place.
@@ -993,7 +993,7 @@ this.setState((prevState) => {
 
 This way, we can use a defined latest version of the state and not miss any state change.
 
-#### Prop types
+### Prop types
 
 Prop types is an extra module that we can use to make sure that the props that are passed to any component are corrent.
 Rather than the component breaking, Proptype will show an error on the `console`.
