@@ -1128,9 +1128,8 @@ loginHandler = () => {
 
 // wrap all the components that need to use the Context API
 <AuthContext.Provider value={{authenticated: false, login: this.loginHandler}}>
-{(context) => context.authenticated
-// access the elements of context using
-// context.
+{
+// your JSX code comes here
 }
 </AuthContext.Provider>
 ```
