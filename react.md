@@ -17,7 +17,7 @@
 // code here
 export const varName1;
 export const varName2; // we can export multiple variables from a .js file
-export default person; // default keywork means that if someone imports this .js file, 
+export default person; // default keywork means that if someone imports this .js file,
 // 'person' will be exported by default
 ```
 
@@ -807,7 +807,7 @@ const functionName = () => {
 }
 ```
 
-- Let's say we want to run useEffect only when a component changes. 
+- Let's say we want to run useEffect only when a component changes.
 - We can do this by adding a second argument.
 - The second argument is the list of components, values that we want to monitor
 - We can use different useEffect functions for different values
@@ -815,7 +815,7 @@ const functionName = () => {
 ```jsx
   useEffect(() => {
     // do something
-  }, []); // this function does something only when nothing changes, 
+  }, []); // this function does something only when nothing changes,
           // which means, that it run only for the first time
 
   useEffect(() => {
@@ -1089,5 +1089,64 @@ const funcName () {
   return (
     <button ref={clickBtnHandler}>Toggle Names</button>
   );
+}
+```
+
+### The Context API
+
+Imagine if we have a component A that shows the component B. B in turn is made up of C and C shows up component D in loop. Lets say that component D use a prop value that is important to it and it passed down to it from A.
+Without the Context API, we need to pass this imp. prop from A to B, then to C and then to D.
+This creates a huge confusion and also repeatition of code.
+
+Comes the Content API. This component, provided by the React team, is responsible for making sure that the values passed from one component can be passed to another component, without the need of passing it down the ladder.
+We can simply save our code in the Context provider and serve it component that need it.
+
+For this, we need to create a context folder and inside that, a `context.js` file. Depending on the necessity, name the file accordingly.
+
+```jsx
+// context/authContext.js
+
+// here we are writing a context provider to manage our authorization
+import React from 'react';
+const authContext = React.createContext({
+  authenticated: false,
+  login: () => {},
+});
+export default authContext;
+```
+
+To use the context API,
+
+```jsx
+// in component_A.js
+
+import AuthContext from '.../context/authContext';
+...
+loginHandler = () => {
+  // handle login
+}
+
+// wrap all the components that need to use the Context API
+<AuthContext.Provider value={{authenticated: false, login: this.loginHandler}}>
+{(context) => context.authenticated
+// access the elements of context using
+// context.
+}
+</AuthContext.Provider>
+```
+
+To use the context API in the child component,
+
+```jsx
+// in component_D.js
+
+import AuthContext from '.../context/authContext';
+...
+// wrap only the components that need to use the Context API
+<AuthContext.Consumer>
+{(context) => context.authenticated ?
+<p>Authenticated</p> :
+<p> Please log in </p>
+<button onClick={context.login}>Log In</button>
 }
 ```
