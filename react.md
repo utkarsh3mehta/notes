@@ -1017,3 +1017,51 @@ ClassName.propType = {
 }
 ```
 
+### Component Referencing (Class based)
+
+Referencing components can be important at times. Especially, when adding focus or other actions to components.
+To add reference to components, there are two ways:
+
+1. Creating a reference arrow function
+
+```jsx
+// each component has a reference attribute in React that runs a anonymous function
+
+componentDidMount() {
+  this.inputElement.focus(); // focus the last created element that defined 'inputElement' variable
+}
+
+...
+return (
+  <Aux>
+    <input
+    ref={(inputEl) => {this.inputElement = inputEl}} // this gives a self-created reference element to the class
+    // we can use this element to do whatever we want to do
+    />
+  </Aux>
+);
+```
+
+1. **Contruct** a class based component
+
+```jsx
+// in the constructor function, initialize a pre-defined function from React itself
+
+contructor (props) {
+  super(props);
+  this.inputElementRef = React.createRef();
+}
+
+componentDidMount() {
+  this.inputElementRef.current.focus();
+}
+...
+return (
+  <Aux>
+    <input
+    ref={this.inputElementRef} // use the reference created by React
+    />
+  </Aux>
+);
+
+```
