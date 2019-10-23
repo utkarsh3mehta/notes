@@ -1065,3 +1065,29 @@ return (
 );
 
 ```
+
+### Component Referencing (Function based)
+
+For referencing components in a function based component, React provides a hook `useRef` that allows us to make refence.
+**Keep in mind that javascript is executed from top to bottom. Hence, it is important to note where we make the referenced component do something.**
+**If we ask the referenced component to do something, even before the components are rendered, the app might break.**
+Best to execute in the `useEffect` block
+
+```jsx
+import React, { useEffect, useRef } from 'react';
+
+const funcName () {
+  clickBtnHandler = useRef(null);
+
+  useEffect(() => {
+    return {
+      clickBtnHandler.click(); // this will press the button once the page is loaded
+    }
+  },[]); // make sure that the useEffect is run only for the first time
+  // or else, it will create an infinite loop
+
+  return (
+    <button ref={clickBtnHandler}>Toggle Names</button>
+  );
+}
+```
