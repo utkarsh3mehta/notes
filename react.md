@@ -1149,3 +1149,34 @@ import AuthContext from '.../context/authContext';
 <button onClick={context.login}>Log In</button>
 }
 ```
+
+#### Using Context API in class based and functional components
+
+In Class based component,
+
+```jsx
+static contextType = AuthContext; // the name should be contextType, as formatted by React
+...
+// instead of using <AuthContext.Provider> or <AuthContext.Consumer>
+{this.context.authenticated ?
+<p> </p> :
+<p> </p>
+}
+// even though the initialization is like contextType, referring it requires 'context' variable
+```
+
+In a functional based component, we can use the `useContext` React hook
+
+```jsx
+import React, { useContext } from 'react';
+import AuthContext from '.../context/authContext';
+
+const funcName = () => {
+  const context = useContext(AuthContext);
+
+  {context.authenticated ?
+  <p> </p> :
+  <p> </p>
+  }
+}
+```
