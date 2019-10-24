@@ -459,6 +459,11 @@ render() {
 
 - To make sure that a `.css` file is assigned to only one `.js` file, we should `eject` the scripts.
 - `Eject` explodes the scripts and webpacks. This allows us to make configuration changes.
+
+```cli
+npm run eject
+```
+
 - Using this, we shall make the necessary changes to assign respective `.css` files to their `.js` files.
 
 ```jsx
