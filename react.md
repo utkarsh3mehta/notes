@@ -1180,3 +1180,13 @@ const funcName = () => {
   }
 }
 ```
+
+## Planning a React app
+
+Planning a React app requires that we invest our time in planning the below things:
+
+1. Components and the component tree
+
+1. Application state and data
+
+1. Components and Containers (Stateful and stateless components)
