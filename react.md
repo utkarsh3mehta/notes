@@ -457,6 +457,18 @@ render() {
 
 ### CSS Moduling
 
+---
+
+### Update on December 2019
+
+**No need to eject the files to enable CSS moduling. Simply create `.module.css` files and import them in their respective `.js` files like**
+
+```jsx
+import styles from './Component.module.css';
+```
+
+---
+
 - To make sure that a `.css` file is assigned to only one `.js` file, we should `eject` the scripts.
 - `Eject` explodes the scripts and webpacks. This allows us to make configuration changes.
 
