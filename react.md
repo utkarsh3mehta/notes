@@ -674,11 +674,11 @@ _Lifecycle hooks not to be confused with React hooks_
   }
   ```
 
-    - Do's
-      - Set up state variable
-    - Don'ts
-      - Cause side-effects
-      - Meaning not to make Http calls or API calls
+  - Do's
+    - Set up state variable
+  - Don'ts
+    - Cause side-effects
+    - Meaning not to make Http calls or API calls
 
 - **Stage 2**
   - When the new component is created, it's parts are completed by placing the values received from props.
@@ -688,11 +688,11 @@ _Lifecycle hooks not to be confused with React hooks_
   static getDerivedStateFromProp(props, state)
   ```
 
-    - Do's
-      - Sync the state
-    - Don'ts
-      - Cause side-effects
-      - Meaning make any out of application calls
+  - Do's
+    - Sync the state
+  - Don'ts
+    - Cause side-effects
+    - Meaning make any out of application calls
 
 - **Stage 3**
   - Once completely created, the JSX code is executed and the component is then rendered.
@@ -701,8 +701,8 @@ _Lifecycle hooks not to be confused with React hooks_
   render()
   ```
 
-    - Do's
-      - Prepare the structure of the component in JSX code
+  - Do's
+    - Prepare the structure of the component in JSX code
 
 - **Stage 4**
   - Render child component
@@ -715,11 +715,11 @@ _Lifecycle hooks not to be confused with React hooks_
   componentDidMount()
   ```
 
-    - Do's
-      - Cause side-effect
-      - Make calls outside the application
-    - Don'ts
-      - Change the state of the component. Or else, this will lead to re-rendering the component
+  - Do's
+    - Cause side-effect
+    - Make calls outside the application
+  - Don'ts
+    - Change the state of the component. Or else, this will lead to re-rendering the component
 
 #### Component lifecycle for updation
 
@@ -730,10 +730,10 @@ _Lifecycle hooks not to be confused with React hooks_
      static getDerivedStateFromProps(props, state)
   ```
 
-    - Do's
-      - Sync the state
-    - Don'ts
-      - Cause side-effects
+  - Do's
+    - Sync the state
+  - Don'ts
+    - Cause side-effects
 
 - **Stage 2**
   - Check if the update activity of the component should happen
@@ -750,10 +750,10 @@ _Lifecycle hooks not to be confused with React hooks_
     }
   ```
 
-    - Do's
-      - Decide whether the component should be re-rendered
-    - Don'ts
-      - Cause side-effects
+  - Do's
+    - Decide whether the component should be re-rendered
+  - Don'ts
+    - Cause side-effects
 
 - **Stage 3**
   - Render the  component
@@ -764,8 +764,8 @@ _Lifecycle hooks not to be confused with React hooks_
     }
   ```
 
-    - Do's
-      - Structure the component using JSX code
+  - Do's
+    - Structure the component using JSX code
 
 - **Stage 4**
   - Render the children in the component
@@ -780,10 +780,10 @@ _Lifecycle hooks not to be confused with React hooks_
     }
   ```
 
-    - Do's
-      - Last-minute DOM changes or operations
-    - Don'ts
-      - Cause side-effect
+  - Do's
+    - Last-minute DOM changes or operations
+  - Don'ts
+    - Cause side-effect
 
 - **Stage 6**
   - Update the component using the latest props, state
@@ -793,10 +793,10 @@ _Lifecycle hooks not to be confused with React hooks_
     // snapshot is received from the 'getSnapshotBeforeUpdate' function
   ```
 
-    - Do's
-      - Cause side-effects
-    - Don'ts
-      - Make changes to the state
+  - Do's
+    - Cause side-effects
+  - Don'ts
+    - Make changes to the state
 
 #### Deleting a component (Component Unmounting)
 
