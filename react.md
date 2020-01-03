@@ -216,7 +216,6 @@ render () {
 - It is a better idea to `persons = personList.slice()` or `persons = [...personList]`
 
 **This still does not solve the key issue**
-
 **This does.**
 **Keep in mind that the key should always be the attribute of the highest parent class**
 
@@ -524,7 +523,6 @@ import styles from './App.css';
 ```
 
 **With this in place, we do not need 'Radium' class**
-
 *To make a css style global, you can even mark it as `:global`*
 
 ```css
@@ -540,7 +538,6 @@ import styles from './App.css';
   - The dev tools in it.
   - The source map in the dev tools
     - The source map allows you to add break point on the running code on the browser.
-
 **Install the 'React Developer Tool' Chrome extension**
 
 #### Error Boundary
@@ -651,7 +648,7 @@ Why is folder structuring important?
 - Breaking components into smaller components makes it easy to re-use the components else where.
 - Structuring the folder helps in finding a component.
 
-**Difference between class based and functional components**
+#### Difference between class based and functional components
 
 Class Based | Functional
 ----------- | ----------
@@ -663,7 +660,7 @@ can have the variable state and work on it | need to hook `{useState}` component
 
 #### Component Lifecycle for creation
 
-_Lifecycle hooks not to be confused with React hooks_
+Lifecycle hooks not to be confused with React hooks
 
 - **Stage 1**
   - When a new component is created, the constructor of the component is created. The props of the components are also passed.
