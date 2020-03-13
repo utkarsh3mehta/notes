@@ -640,7 +640,7 @@ export default ErrorBoundary;
 
 Something like this:
 
-![Image of the file structure](react-file-structure.PNG)
+![Image of the file structure](images/react-file-structure.PNG)
 
 Why is folder structuring important?
 
