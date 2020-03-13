@@ -1,6 +1,6 @@
 # SSPR Workflow
 
-## 1. Go to https://sspassreset.azurewebsites.net
+## 1. Go to the [SSPR site](https://sspassreset.azurewebsites.net)
 
 ![homepage](images/Picture1.png)
 
@@ -33,7 +33,7 @@ Your account will be unlocked
 - Your password is reset
 - You receive an email with the attached photo of the password
 
-## Face an issue?
+## Face an issue
 
 - There was a technical issue while sending the mail.
   - You can choose to use a different SMPT account by clicking the link below the main form
