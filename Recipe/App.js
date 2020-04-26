@@ -3,6 +3,8 @@ import { StyleSheet, Text, View } from 'react-native';
 import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
 
+import BodyText from './components/BodyText'
+
 export default function App() {
 
   const fetchFonts = () => {
@@ -22,7 +24,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <BodyText>Open up App.js to start working on your app!</BodyText>
     </View>
   );
 }
