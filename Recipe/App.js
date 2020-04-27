@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
 
-import BodyText from './components/BodyText'
+import RecipeNavigator from './navigations/recipeNavigator'
 
 export default function App() {
 
@@ -22,18 +22,5 @@ export default function App() {
     return <AppLoading startAsync={fetchFonts} onFinish={() => setFontLoaded(true)} />
   }
 
-  return (
-    <View style={styles.container}>
-      <BodyText>Open up App.js to start working on your app!</BodyText>
-    </View>
-  );
+  return <RecipeNavigator />
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
