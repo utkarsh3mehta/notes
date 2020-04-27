@@ -12,6 +12,10 @@ const CategoryScreen = props => {
     )
 }
 
+CategoryScreen.navigationOptions = {
+    headerTitle: "Test"
+}
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
