@@ -1,10 +1,12 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 
+import BodyText from '../components/BodyText'
+
 const SingleCategoryScreen = props => {
     return (
         <View style={styles.container}>
-            <Text>Single Category Screen</Text>
+            <BodyText>Single Category Screen</BodyText>
         </View>
     )
 }

@@ -1,10 +1,12 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 
+import BodyText from '../components/BodyText'
+
 const FavoriteScreen = props => {
     return (
         <View style={styles.container}>
-            <Text>Favorite Screen</Text>
+            <BodyText>Favorite Screen</BodyText>
         </View>
     )
 }
